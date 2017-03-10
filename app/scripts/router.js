@@ -16,7 +16,7 @@ var AppRouter = Backbone.Router.extend({
 
   initialize: function(){
     parse.setup({
-         BASE_API_URL: 'https://tiny-lasagna-server-new.herokuapp.com'
+         BASE_API_URL: 'https://tiny-parse-server.herokuapp.com'
        });
      },
 

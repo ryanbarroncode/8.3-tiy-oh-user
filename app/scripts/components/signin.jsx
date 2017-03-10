@@ -14,6 +14,7 @@ class SignInContainer extends React.Component{
   }
 
   login(formData){
+    // console.log('trying to login', formData);
     User.login(formData, function(){
       Backbone.history.navigate('chat/', {trigger: true});
     });
@@ -121,7 +122,7 @@ class LoginForm extends React.Component{
   }
 
   handleLoginUsernameChange(e){
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({username: e.target.value});
   }
 

@@ -16,7 +16,34 @@ var User = Backbone.Model.extend({
      User.store(user);
      callback();
    });
+ },
 
+ signup: function(credentials){
+    var newUser = new User(credentials);
+    newUser.save().then(() => {
+      User.store(newUser);
+    });
+    return newUser;
+  },
+  store: function(user){
+    localStorage.setItem('user', JSON.stringify(user.toJSON()));
+  },
+  current: function(){
+    var user = localStorage.getItem('user');
+
+    // if no user in local storage, bail
+    if(!user){
+      return false;
+    }
+
+    user = new User(JSON.parse(user));
+
+    // If we don't have a token, bail
+    if(!user.get('sessionToken')){
+      return false;
+    }
+
+    return user;
   }
 });
 
