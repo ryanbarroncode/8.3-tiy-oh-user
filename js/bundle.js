@@ -30,7 +30,7 @@ class ChatContainer extends React.Component{
   handleInput(e) {
     this.setState({message: e.target.value});
   }
-
+ 
   postMessage(e){
     e.preventDefault();
     this.state.messageCollection.create({
@@ -99,7 +99,7 @@ var Backbone = require('backbone');
 
 var User = require('../models/user.js').User;
 var parse = require('../parse.js')
-{/* This is the main container that holds the page together */}
+
 class SignInContainer extends React.Component{
   constructor(props){
     super(props);
@@ -212,12 +212,12 @@ class LoginForm extends React.Component{
 
   handleLoginSubmit(e){
    e.preventDefault();
-   // input data.... this.state
+
    this.props.action(this.state);
   }
 
   handleLoginUsernameChange(e){
-    // console.log(e.target.value);
+
     this.setState({username: e.target.value});
   }
 
@@ -228,7 +228,7 @@ class LoginForm extends React.Component{
   render(){
     return(
       React.createElement("div", {className: "col-md-6"}, 
-        React.createElement("h1", null, "Please login"), 
+        React.createElement("h1", null, "Please Login"), 
           React.createElement("form", {onSubmit: this.handleLoginSubmit.bind(this), id: "login"}, 
             React.createElement("div", {className: "form-group"}, 
               React.createElement("label", {htmlFor: "email-login"}, "Email address"), 
